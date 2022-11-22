@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        function mouseOver()
+        {
+            document.getElementById("UserPic").src ="img/Mogen Polish 1.jpg";
+        }
+        function mouseOut()
+        {
+            document.getElementById("UserPic").src ="img/Hoang%20Thai.jpg";
+        }
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CODEBOX</title>
+    <link rel="stylesheet"
+          href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="dist/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script>
+    function loadDoc() {
+                jQuery("title").html("CODEBOX with connections");
+        /*$.ajax({
+            url: "http://localhost:3000/data.json",
+            dataType:"json",
+            type: "GET",
+            success: function(text) {
+                alert(text);
+                var oData2 = $.parseJSON(text);
+            }
+        });*/
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        const jsonDoc = xhttp.responseText;
+        var oData2 = jQuery.parseJSON(jsonDoc);
+        const person = oData2.LIST;
+        for(let i=0;i<5;i++)myFunction(person, i);
+    }
+    xhttp.open("GET", "data.json");
+    xhttp.send();
+    }
+    function myFunction(person, i) {
+        document.getElementById("showName"+(i+1)).innerHTML =
+            "" +
+            person[i].Name;
+        document.getElementById("showProfession"+(i+1)).innerHTML =
+            "" +
+            person[i].Profession;
+        document.getElementById("showImage"+(i+1)).innerHTML =
+            '<img class="img-fluid" src = "' + person[i].Photo + '" style="margin-left: 15px; float: left">';
+    }
+</script>
+    <div class="row">
+        <div class="col-sm-2" style="background: #1d2b36; border: 1px; color: white; text-indent: 30px">
+            <svg class="bi" width="16" height="16" fill="currentColor">
+                <use xlink:href="bootstrap-icons.svg#unity"/>
+            </svg>
+            <a style="color:white">CODE</a>
+            <a style="color:#992a3e">BOX</a>
+            <p>
+            <ul class="nav flex-column">
+                <p>
+                <div style="color: #6c7a84; text-indent: 35px">
+                    Navigation
+                </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#c7d8ea">
+                        <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px" >
+                            <use xlink:href="bootstrap-icons.svg#speedometer2"/>
+                        </svg>
+                            Dashboard
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown7">
+                        <a class="dropdown-item" href="#">Dashboard</a>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="#">Dashboard 1</a>
+                        <a class="dropdown-item" href="#">Dashboard 2</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"style="color:#c7d8ea">
+                    <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#envelope-fill"/>
+                    </svg>
+                    Mailbox
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"style="color:#c7d8ea">
+                    <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#calendar-week"/>
+                    </svg>
+                    Calendar
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#c7d8ea">
+                    <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#file-earmark-fill"/>
+                    </svg>
+                        Pages
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Pages</a>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="#">Pages 1</a>
+                        <a class="dropdown-item" href="#">Pages 2</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownApps" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#c7d8ea">
+                    <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#grid-fill"/>
+                    </svg>
+                        Apps
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Apps</a>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="#">Apps 1</a>
+                        <a class="dropdown-item" href="#">Apps 2</a>
+                    </div>
+                </li>
+                <p>
+                <p>
+                <div style="color: #6c7a84">
+                    Components
+                </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLayouts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#c7d8ea">
+                    <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#grid-3x3-gap-fill"/>
+                    </svg>
+                        Layouts
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Layouts</a>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="#">Layouts 1</a>
+                        <a class="dropdown-item" href="#">Layouts 2</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUIElements" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#c7d8ea">
+                    <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#briefcase-fill"/>
+                    </svg>
+                        UI Elements
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">UI Elements</a>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="#">UI Elements 1</a>
+                        <a class="dropdown-item" href="#">UI Elements 2</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownForms" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#c7d8ea">
+                        <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                            <use xlink:href="bootstrap-icons.svg#menu-button-wide-fill"/>
+                        </svg>
+                        Forms
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Forms</a>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="#">Forms 1</a>
+                        <a class="dropdown-item" href="#">Forms 2</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTables" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#c7d8ea">
+                    <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#table"/>
+                    </svg>
+                        Tables
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Tables</a>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="#">Tables 1</a>
+                        <a class="dropdown-item" href="#">Tables 2</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownChart" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#c7d8ea">
+                    <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#graph-down"/>
+                    </svg>
+                        Chart
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Chart</a>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="#">Chart 1</a>
+                        <a class="dropdown-item" href="#">Chart 2</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMaps" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#c7d8ea">
+                    <svg class="bi" width="20" height="20" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#map-fill"/>
+                    </svg>
+                        Maps
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Maps</a>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="#">Maps 1</a>
+                        <a class="dropdown-item" href="#">Maps 2</a>
+                    </div>
+                </li>
+                <p><p>
+            </ul>
+            <div style="color: #6c7a84">
+            Data Points
+            </div>
+            <p> <p>
+            <a style="color: #c7d8ea; text-align: left; margin-right: 80px">
+                Milestone
+            </a>
+            <a style="color: #c7d8ea; text-align: right">
+                70%
+            </a>
+            <div class="progress bg-dark" style="width:80%; height:6px; margin-left: 10%">
+                <div class="progress-bar" style="width:70%; height:6px">
+                </div>
+            </div>
+            <p> <p>
+                <a style="color: #c7d8ea; text-align: left; margin-right: 90px">
+                    Release
+                </a>
+                <a style="color: #c7d8ea; text-align: right">
+                    45%
+                </a>
+            <div class="progress bg-dark" style="width:80%; height:6px; margin-left: 10%">
+                <div class="progress-bar bg-danger" style="width:45%; height:6px">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10" style="background: white; color: black; border: 1px solid black">
+            <div class="row">
+                <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                <div class="container-fluid">
+                    <svg class="bi" width="24" height="24" fill="currentColor" style="margin-right: 20px">
+                        <use xlink:href="bootstrap-icons.svg#text-indent-left"/>
+                    </svg>
+                    <svg class="bi" width="24" height="24" fill="currentColor" >
+                        <use xlink:href="bootstrap-icons.svg#person-fill"/>
+                    </svg>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: -200px">
+                                    Mega
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Mega</a>
+                                    <div class="dropdown-divider">
+                                    </div>
+                                    <a class="dropdown-item" href="#">Mega 1</a>
+                                    <a class="dropdown-item" href="#">Mega 2</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: -100px">
+                                    New
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">New</a>
+                                    <div class="dropdown-divider">
+                                    </div>
+                                    <a class="dropdown-item" href="#">New 1</a>
+                                    <a class="dropdown-item" href="#">New 2</a>
+                                </div>
+                            </li>
+                            <li>
+                                <form class="d-flex">
+                                    <input class="form-control me-2" type="text" placeholder="Search" style="margin-left: 10px">
+                                    <button class="btn btn-primary" type="button">Search</button>
+                                </form>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav me-auto navbar-right">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 140px; text-align: right">
+                                    English
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">English</a>
+                                    <div class="dropdown-divider">
+                                    </div>
+                                    <a class="dropdown-item" href="#">Ukrainian</a>
+                                    <a class="dropdown-item" href="#">Polish</a>
+                                    <a class="dropdown-item" href="#">German</a>
+                                    <a class="dropdown-item" href="#">French</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <svg class="bi" width="24" height="24" fill="currentColor" style="margin-left: 20px">
+                                <use xlink:href="bootstrap-icons.svg#calendar-week"/>
+                                </svg>
+                            </li>
+                            <li class="nav-item">
+                                <svg class="bi" id="bell" width="24" height="24" fill="currentColor" style="margin-left: 20px">
+                                    <use xlink:href="bootstrap-icons.svg#bell"/>
+                                </svg>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-indent: 30%">
+                                    Hoang.Thai
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown5">
+                                    <a class="dropdown-item" href="#">Hoang.Thai</a>
+                                    <div class="dropdown-divider">
+                                    </div>
+                                    <a class="dropdown-item" href="#">Mogen.Polish</a>
+                                    <a class="dropdown-item" href="#">Amelia.Nelson</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <svg class="bi" width="32" height="32" fill="currentColor">
+                                    <img class="img-fluid" id="UserPic" onmouseover="mouseOver()"
+                                         onmouseout="mouseOut()" src = "img/Hoang%20Thai.jpg">
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            </div>
+            <div class="row">
+                <div class="row">
+                <div class="col-sm-10" style="background: #eff3f4; color: black; border: 1px solid black">
+                    <div class="col-*-*">
+                        Dashboard
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid" src = "img/Tablo.PNG">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            Analysis
+                            <p>
+                                <img class="img-fluid" src="img/Analysis.png" style="width: 100%; height: 100%">
+                        </div>
+                        <div class="col-sm-7">
+                            Statistics
+                            <p>
+                                <img class="img-fluid" src="img/Ststistics.png" style="width: 100%; height: 100%">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Members
+                            <p>
+                                <img class="img-fluid" src="img/Members.png" style="width: 100%; height: 100%">
+                        </div>
+                        <div class="col-sm-4">
+                            Tasks
+                            <p>
+                                <img class="img-fluid" src="img/Tasks.png" style="width: 100%; height: 100%">
+                        </div>
+                        <div class="col-sm-4">
+                            Activity
+                            <p>
+                                <img class="img-fluid" src="img/Activity.png" style="width: 100%; height: 100%">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            Managed services
+                            <p>
+                                <img class="img-fluid" src="img/Managed%20services.png" style="width: 100%; height: 100%">
+                        </div>
+                        <div class="col-sm-3">
+                            Reports
+                            <p>
+                                <img class="img-fluid" src="img/Reports.png" style="width: 100%; height: 100%">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Responsive table
+                            <p>
+                                <img class="img-fluid" src="img/Responsive%20table.png" style="width: 100%; height: 100%">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-sm-2" style="background: white; color: black; border: 1px solid black; ">
+                        <div class="row">
+                            <div class = "col-sm-4 svg-column">
+                            <svg class="bi" width="24" height="24" fill="currentColor">
+                                <use xlink:href="bootstrap-icons.svg#people-fill"/>
+                            </svg>
+                            </div>
+                            <div class = "col-sm-4 svg-column">
+                            <svg class="bi" width="24" height="24" fill="currentColor">
+                                <use xlink:href="bootstrap-icons.svg#chat"/>
+                            </svg>
+                            </div>
+                                <div class = "col-sm-4 svg-column">
+                            <svg class="bi" width="24" height="24" fill="currentColor">
+                                <use xlink:href="bootstrap-icons.svg#gear"/>
+                            </svg>
+                                </div>
+                            </div>
+                        <p>
+                            <div class="row">
+                        <div style="text-indent: 15px">
+                            Who to follow
+                            <p>
+                        </div>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <div id='showImage1'></div>
+                                    <a id='showName1'></a>
+                                    <p style="font-size:90%; color: #c0c0c0">
+                                    <a id='showProfession1'></a>
+                                </li>
+                            <li class="nav-item">
+                                <div id='showImage2'></div>
+                                <a id='showName2'></a>
+                                <p style="font-size:90%; color: #c0c0c0">
+                                    <a id='showProfession2'></a>
+                            </li>
+                            <li class="nav-item">
+                                <div id='showImage3'></div>
+                                <a id='showName3'></a>
+                                <p style="font-size:90%; color: #c0c0c0">
+                                    <a id='showProfession3'></a>
+                            </li>
+                            <li class="nav-item">
+                                <div id='showImage4'></div>
+                                <a id='showName4'></a>
+                                <p style="font-size:90%; color: #c0c0c0">
+                                    <a id='showProfession4'></a>
+                            </li>
+                            <li class="nav-item">
+                                <div id='showImage5'></div>
+                                <a id='showName5'></a>
+                                <p style="font-size:90%; color: #c0c0c0">
+                                    <a id='showProfession5'></a>
+                            </li>
+                                <p>
+                            </ul>
+                            <button type="button" class="btn btn-primary" onclick="loadDoc()">More Connection
+                            </button>
+                        <p> <p> <p>
+                        </div>
+                        <div class="row">
+                            <div style="text-indent: 10%">
+                                Todo List
+                            </div>
+                            <div style="text-indent: 10%; font-size:90%; color: #c0c0c0">
+                                3 of 5 remaining
+                            </div>
+                            <p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something1" checked style="margin-left: 10px">
+                                <div style="text-indent: 5%; font-size: 90%">
+                                Build an angular app
+                                    <p>
+                                </div>
+                            </div>
+                            <p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check2" name="option2" value="something2" unchecked style="margin-left: 10px">
+                            <div style="text-indent: 5%; font-size: 90%">
+                                Creating component page
+                                <p>
+                            </div>
+                            </div>
+                            <p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check3" name="option3" value="something3" checked style="margin-left: 10px">
+                                <div style="text-indent: 5%; font-size: 90%">
+                                Design One page theme
+                                    <p>
+                                </div>
+                            </div>
+                            <p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check4" name="option4" value="something4" checked style="margin-left: 10px">
+                                    <div style="text-indent: 5%; font-size: 90%">
+                                    Build a js based app
+                                        <p>
+                                    </div>
+                            </div>
+                            <p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check5" name="option5" value="something5" unchecked style="margin-left: 10px">
+                                <div style="text-indent: 5%; font-size: 90%">
+                                    Responsive design for Smartphone
+                                    <p>
+                                </div>
+                            </div>
+                            <p>
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="text" size="2" placeholder="Add new todo">
+                                <button class="btn btn-primary" type="button">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="node_modules/popper.js/dist/umd/popper.min.js">
+</script>
+</body>
+</html>
